@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://blpftv0bodluo"]
+[gd_scene load_steps=10 format=3 uid="uid://blpftv0bodluo"]
 
 [ext_resource type="Texture2D" uid="uid://bltqjkhnhqyhv" path="res://Bullet-Hell-Assets/floor tiles/dirt_2_new.png" id="1_0ptgl"]
 [ext_resource type="Texture2D" uid="uid://ncmt1rd05ibo" path="res://Bullet-Hell-Assets/floor tiles/dirt_full_new.png" id="2_n6h25"]
 [ext_resource type="Texture2D" uid="uid://dsyxlt5wfhffw" path="res://Bullet-Hell-Assets/floor tiles/floor_sand_stone_4.png" id="3_2bqln"]
 [ext_resource type="PackedScene" uid="uid://c1ormbr5g70i3" path="res://Scenes/Player/player.tscn" id="4_nao4m"]
+[ext_resource type="PackedScene" uid="uid://dknwdu2lpd64i" path="res://Scenes/AI/snake_mob.tscn" id="5_3ekny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vbwna"]
 texture = ExtResource("1_0ptgl")
@@ -37,3 +38,6 @@ layer_0/tile_data = PackedInt32Array(196619, 1, 0, 0, 1, 0, 65536, 1, 0, 131072,
 
 [node name="Player" parent="." instance=ExtResource("4_nao4m")]
 position = Vector2(207, 25)
+
+[node name="Snake mob" parent="." instance=ExtResource("5_3ekny")]
+position = Vector2(264, 86)

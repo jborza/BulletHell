@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dknwdu2lpd64i"]
+
+[ext_resource type="Script" path="res://Scripts/AI/Snake mob.gd" id="1_vp1sv"]
+[ext_resource type="Texture2D" uid="uid://da277d1g3y5q3" path="res://Bullet-Hell-Assets/monster sprites/guardian_serpent_old.png" id="2_x0qo4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icvcv"]
+size = Vector2(23.8614, 6.24938)
+
+[node name="Snake mob" type="CharacterBody2D"]
+script = ExtResource("1_vp1sv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 10)
+scale = Vector2(1.08963, 1.28013)
+shape = SubResource("RectangleShape2D_icvcv")
+
+[node name="GuardianSerpentOld" type="Sprite2D" parent="."]
+texture = ExtResource("2_x0qo4")
+metadata/_edit_lock_ = true
