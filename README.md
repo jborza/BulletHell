@@ -1,2 +1,3 @@
 # BulletHell
- Tutorial from zenva
+
+Created using a tutorial from zenva. Bullet Hell, yay!
