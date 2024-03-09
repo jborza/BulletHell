@@ -7,6 +7,8 @@
 size = Vector2(23.8614, 6.24938)
 
 [node name="Snake mob" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_vp1sv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

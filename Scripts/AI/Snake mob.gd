@@ -4,6 +4,7 @@ var isAlive : bool = true
 var speed : int = 20
 @onready var player = get_node("../Player")
 @onready var sprite = $GuardianSerpentOld
+var mob = true
 
 func _physics_process(delta):
 	if isAlive:

@@ -1,9 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cclxfqoht4xvm"]
+[gd_scene load_steps=5 format=3 uid="uid://cclxfqoht4xvm"]
 
 [ext_resource type="Script" path="res://Scripts/Player/bullet.gd" id="1_t2pll"]
 [ext_resource type="Texture2D" uid="uid://biwityalhxr64" path="res://Bullet-Hell-Assets/player_bullet.png" id="2_g3glq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m2yi6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kgiqm"]
 
 [node name="Bullet" type="CharacterBody2D"]
 script = ExtResource("1_t2pll")
@@ -14,3 +16,12 @@ texture = ExtResource("2_g3glq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_m2yi6")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_kgiqm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
