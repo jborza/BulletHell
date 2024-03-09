@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1ormbr5g70i3"]
+[gd_scene load_steps=4 format=3 uid="uid://c1ormbr5g70i3"]
 
 [ext_resource type="Texture2D" uid="uid://27om33etpjpj" path="res://Bullet-Hell-Assets/player.png" id="1_1rpih"]
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_ja0iu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbc8w"]
+size = Vector2(14, 15)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ja0iu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_xbc8w")
 
 [node name="Player" type="Sprite2D" parent="."]
-position = Vector2(54, 58)
 texture = ExtResource("1_1rpih")
+flip_h = true
 hframes = 3
