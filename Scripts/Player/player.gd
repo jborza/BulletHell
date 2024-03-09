@@ -3,6 +3,8 @@ extends CharacterBody2D
 var speed : int = 75
 var direction : Vector2 = Vector2(0,1)
 
+@onready var bullet_pool = $Bullets
+
 func setup_frame_and_fliph(frame: float, flip_h: bool):
 	get_node("Player").frame = frame
 	get_node("Player").flip_h = flip_h
@@ -27,5 +29,12 @@ func _physics_process(delta: float) -> void:
 		direction = inputDir
 		setup_frame_and_fliph(0, false)
 		
+	$SpawnPoint.position =  direction
+	
+	if Input.is_action_just_pressed("Shoot"):
+		var bulletTemp = bullet_pool.get_bullet()
+		bulletTemp.velocity = direction * 100
+		bulletTemp.global_position = $SpawnPoint.global_position
+		bulletTemp.show()
 	velocity = inputDir * speed
 	move_and_slide()

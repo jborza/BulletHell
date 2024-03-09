@@ -12,3 +12,5 @@ data_*/
 
 # Godot 4 and later
 .godot/
+
+*.tmp
