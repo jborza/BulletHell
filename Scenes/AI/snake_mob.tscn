@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dknwdu2lpd64i"]
+[gd_scene load_steps=11 format=3 uid="uid://dknwdu2lpd64i"]
 
 [ext_resource type="Script" path="res://Scripts/AI/Snake mob.gd" id="1_vp1sv"]
 [ext_resource type="Texture2D" uid="uid://da277d1g3y5q3" path="res://Bullet-Hell-Assets/monster sprites/guardian_serpent_old.png" id="2_x0qo4"]
+[ext_resource type="Texture2D" uid="uid://bsltfoveywaax" path="res://Bullet-Hell-Assets/enemy death animation/enemy_death_0.png" id="3_65q6o"]
+[ext_resource type="Texture2D" uid="uid://dsqmxaoa1s2wu" path="res://Bullet-Hell-Assets/enemy death animation/enemy_death_1.png" id="4_mmj0q"]
+[ext_resource type="Texture2D" uid="uid://b0efsof7pd0cw" path="res://Bullet-Hell-Assets/enemy death animation/enemy_death_2.png" id="5_ew0tk"]
+[ext_resource type="Texture2D" uid="uid://dgkne5vjg7h3m" path="res://Bullet-Hell-Assets/enemy death animation/enemy_death_3.png" id="6_ywiuv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icvcv"]
 size = Vector2(23.8614, 6.24938)
@@ -11,6 +15,26 @@ bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_reqr6"]
 bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jsgtp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_65q6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mmj0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ew0tk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ywiuv")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}]
 
 [node name="Snake mob" type="CharacterBody2D"]
 collision_layer = 2
@@ -36,3 +60,8 @@ theme_override_styles/background = SubResource("StyleBoxFlat_b7jp0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_reqr6")
 value = 33.0
 show_percentage = false
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_jsgtp")
+animation = &"Death"

@@ -7,6 +7,7 @@ var health : int = 5
 @onready var player = get_node("../../Player")
 @onready var sprite = $GuardianSerpentOld
 @onready var bar = $ProgressBar
+@onready var anim = $Anim
 var mob = true
 
 func _ready():
@@ -25,6 +26,8 @@ func _physics_process(delta):
 			sprite.flip_h = true
 	else:
 		sprite.hide()
+		bar.hide()
+		anim.show()
 
 func reset_mob(body):
 	
@@ -32,4 +35,6 @@ func reset_mob(body):
 		health -= 1
 	else:
 		isAlive = false
+		anim.play("Death")
+		await anim.animation_finished
 		get_parent().reset_mob(body)	
