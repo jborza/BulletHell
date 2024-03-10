@@ -38,3 +38,9 @@ func reset_mob(body):
 		anim.play("Death")
 		await anim.animation_finished
 		get_parent().reset_mob(body)	
+
+
+func _on_player_detection_body_entered(body):
+	if "Player" in body.name:
+		if visible and body.visible:
+			Game.playerHP -= 1

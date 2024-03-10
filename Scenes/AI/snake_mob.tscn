@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dknwdu2lpd64i"]
+[gd_scene load_steps=12 format=3 uid="uid://dknwdu2lpd64i"]
 
 [ext_resource type="Script" path="res://Scripts/AI/Snake mob.gd" id="1_vp1sv"]
 [ext_resource type="Texture2D" uid="uid://da277d1g3y5q3" path="res://Bullet-Hell-Assets/monster sprites/guardian_serpent_old.png" id="2_x0qo4"]
@@ -36,6 +36,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_go0s0"]
+
 [node name="Snake mob" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
@@ -65,3 +67,11 @@ show_percentage = false
 visible = false
 sprite_frames = SubResource("SpriteFrames_jsgtp")
 animation = &"Death"
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+scale = Vector2(1.44144, 1.36136)
+shape = SubResource("CircleShape2D_go0s0")
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
