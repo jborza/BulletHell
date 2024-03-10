@@ -9,6 +9,6 @@ func _on_area_2d_body_entered(body):
 	# which body is it?
 	if body.get("mob"):
 		if body.isAlive and body.visible and self.visible:
-			body.queue_free()
+			body.reset_mob(body)
 			get_parent().reset_bullet(self)
 			
