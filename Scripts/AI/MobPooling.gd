@@ -26,7 +26,7 @@ func add_mob():
 	return mob
 	
 func reset_mob(mob):
-	mob.position = Vector2(-1000, -1000)
+	mob.global_position = Vector2(-1000, -1000)
 	mob.isAlive = false
 	mob.get_node("CollisionShape2D").disabled = false
 	mob.hide()
