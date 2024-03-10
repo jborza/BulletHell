@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dknwdu2lpd64i"]
+[gd_scene load_steps=13 format=3 uid="uid://dknwdu2lpd64i"]
 
 [ext_resource type="Script" path="res://Scripts/AI/Snake mob.gd" id="1_vp1sv"]
 [ext_resource type="Texture2D" uid="uid://da277d1g3y5q3" path="res://Bullet-Hell-Assets/monster sprites/guardian_serpent_old.png" id="2_x0qo4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dsqmxaoa1s2wu" path="res://Bullet-Hell-Assets/enemy death animation/enemy_death_1.png" id="4_mmj0q"]
 [ext_resource type="Texture2D" uid="uid://b0efsof7pd0cw" path="res://Bullet-Hell-Assets/enemy death animation/enemy_death_2.png" id="5_ew0tk"]
 [ext_resource type="Texture2D" uid="uid://dgkne5vjg7h3m" path="res://Bullet-Hell-Assets/enemy death animation/enemy_death_3.png" id="6_ywiuv"]
+[ext_resource type="Script" path="res://Scripts/AI/aiBulletPool.gd" id="7_fv7x7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icvcv"]
 size = Vector2(23.8614, 6.24938)
@@ -74,4 +75,14 @@ animation = &"Death"
 scale = Vector2(1.44144, 1.36136)
 shape = SubResource("CircleShape2D_go0s0")
 
+[node name="Bullets" type="Node" parent="."]
+script = ExtResource("7_fv7x7")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(-9, -11)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
